@@ -17,5 +17,4 @@ module.exports = withBundleAnalyzer({
         localeSubpaths,
     },
     reactStrictMode: true,
-    generateBuildId: () => nextBuildId({ dir: __dirname }),
 });
