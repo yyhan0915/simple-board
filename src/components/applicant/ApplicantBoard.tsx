@@ -31,7 +31,7 @@ const ApplicantBoard: React.FC<IProps> = ({ searchTerm }) => {
     );
     const [isSnackBarOpen, setIsSnackBarOpen] = useState<boolean>(false);
     const [snackBarMessage, setSnackBarMessage] = useState<string>('');
-    const snackBarOpenHanlder = useCallback(() => {
+    const snackBarOpenHandler = useCallback(() => {
         setIsSnackBarOpen(false);
     }, []);
     const [loading, setLoading] = useState<boolean>(true);
@@ -91,7 +91,7 @@ const ApplicantBoard: React.FC<IProps> = ({ searchTerm }) => {
                     );
                 })}
             </ApplicantBoardBlock>
-            <SnackBar isOpen={isSnackBarOpen} message={snackBarMessage} handle={snackBarOpenHanlder} />
+            <SnackBar isOpen={isSnackBarOpen} message={snackBarMessage} handle={snackBarOpenHandler} />
         </>
     );
 };

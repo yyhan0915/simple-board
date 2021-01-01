@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from '../../i18n';
@@ -41,7 +42,9 @@ const ApplicantBar: React.FC<IProps> = () => {
     return (
         <ApplicantBarBlock>
             <div className="title">
-                <img src="/asset/image/arrow-backward.svg" />
+                <Link href="/">
+                    <img src="/asset/image/arrow-backward.svg" />
+                </Link>
                 <span>{t('applicants')}</span>
             </div>
             <FigureBoxes />

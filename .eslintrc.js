@@ -52,6 +52,11 @@ module.exports = {
                         allowConciseArrowFunctionExpressionsStartingWithVoid: true,
                     },
                 ],
+                '@typescript-eslint/no-empty-interface': 'warn',
+
+                'react-hooks/rules-of-hooks': 'error',
+                'react-hooks/exhaustive-deps': 'warn',
+
                 'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
             },
         },
