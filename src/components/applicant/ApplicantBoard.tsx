@@ -54,7 +54,7 @@ const ApplicantBoard: React.FC<IProps> = ({ searchTerm }) => {
             setSnackBarMessage('Failed to get applicant list');
             setIsSnackBarOpen(true);
         }
-    }, []);
+    }, [applicantError]);
 
     const applicantsByStatus = [
         {
