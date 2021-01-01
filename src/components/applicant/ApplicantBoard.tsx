@@ -41,8 +41,11 @@ const ApplicantBoard: React.FC<IProps> = ({ searchTerm }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApplicationList());
-        setLoading(false);
+        async function getApplicantsData() {
+            await dispatch(getApplicationList());
+            setLoading(false);
+        }
+        getApplicantsData();
     }, []);
 
     useEffect(() => {
