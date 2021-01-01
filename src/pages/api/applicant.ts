@@ -1,0 +1,127 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default (_: NextApiRequest, res: NextApiResponse) => {
+    res.statusCode = 200;
+    res.json({
+        applicant: [
+            {
+                id: 0,
+                name: 'Friedrich Heinrich',
+                contact: '+49 146 344 23811',
+                email: 'Friedrich.heinrich@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'appointment_set',
+            },
+            {
+                id: 1,
+                name: 'Hans-Ulrich',
+                contact: '+49 146 344 23811',
+                email: 'Hans-Ulrichh@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'appointment_set',
+            },
+            {
+                id: 2,
+                name: 'Maxmillian Von Mustermann',
+                contact: '+49 146 344 23811',
+                email: 'max.mustermann@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'appointment_set',
+            },
+            {
+                id: 3,
+                name: 'Karlheinz Brandenburg',
+                contact: '+49 146 344 23811',
+                email: 'karlheinzbrandenburg@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'appointment_set',
+            },
+            {
+                id: 4,
+                name: 'Bernhard Weiß',
+                contact: '+49 146 344 23811',
+                email: 'bernhard.weiß@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'property_viewed',
+                bid: 250000,
+            },
+            {
+                id: 5,
+                name: 'Hansjörg Felmy',
+                contact: '+49 146 344 23811',
+                email: 'Hansjörg.felmy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'property_viewed',
+                bid: 250000,
+            },
+            {
+                id: 6,
+                name: 'Gottschalk Godeslack',
+                contact: '+49 146 344 23811',
+                email: 'gottschalk.godeslack@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'property_viewed',
+                bid: 250000,
+            },
+            {
+                id: 7,
+                name: 'Ekkehard Hardy',
+                contact: '+49 146 344 23811',
+                email: 'ekkehard.hardy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'property_viewed',
+                bid: 250000,
+            },
+            {
+                id: 8,
+                name: 'Hansjörg Felmy',
+                contact: '+49 146 344 23811',
+                email: 'Hansjörg.felmy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'interested',
+            },
+            {
+                id: 9,
+                name: 'Gottschalk Godeslack',
+                contact: '+49 146 344 23811',
+                email: 'gottschalk.godeslack@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'interested',
+            },
+            {
+                id: 10,
+                name: 'Ekkehard Hardy',
+                contact: '+49 146 344 23811',
+                email: 'ekkehard.hardy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'interested',
+            },
+            {
+                id: 11,
+                name: 'Ekkehard Hardy',
+                contact: '+49 146 344 23811',
+                email: 'ekkehard.hardy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'offer_accepted',
+            },
+            {
+                id: 12,
+                name: 'Ekkehard Hardy',
+                contact: '+49 146 344 23811',
+                email: 'ekkehard.hardy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'offer_accepted',
+            },
+            {
+                id: 13,
+                name: 'Ekkehard Hardy',
+                contact: '+49 146 344 23811',
+                email: 'ekkehard.hardy@gmail.com',
+                time: '22 JULY 14:00',
+                application_status: 'offer_accepted',
+            },
+        ],
+    });
+};
