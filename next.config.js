@@ -1,13 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-    enabled: process.env.ANALYZE === 'true',
-});
 const { nextI18NextRewrites } = require('next-i18next/rewrites');
 
 const localeSubpaths = { en: 'en', de: 'de' };
 
-module.exports = withBundleAnalyzer({
+module.exports = {
     rewrites: async () => nextI18NextRewrites(localeSubpaths),
     distDir: 'build',
     images: {
@@ -17,4 +14,4 @@ module.exports = withBundleAnalyzer({
         localeSubpaths,
     },
     reactStrictMode: true,
-});
+};
