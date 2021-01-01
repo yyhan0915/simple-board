@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from '../../i18n';
 import palette, { device } from '../../styles/palette';
 import FigureBoxes from './FigureBoxes';
 
@@ -17,6 +18,7 @@ const ApplicantBarBlock = styled.div`
     .title {
         display: flex;
         align-items: center;
+        text-transform: capitalize;
 
         img {
             margin-right: 16px;
@@ -34,11 +36,13 @@ interface IProps {
 }
 
 const ApplicantBar: React.FC<IProps> = () => {
+    const { t } = useTranslation();
+
     return (
         <ApplicantBarBlock>
             <div className="title">
                 <img src="/asset/image/arrow-backward.svg" />
-                <span>Applicant</span>
+                <span>{t('applicants')}</span>
             </div>
             <FigureBoxes />
         </ApplicantBarBlock>
