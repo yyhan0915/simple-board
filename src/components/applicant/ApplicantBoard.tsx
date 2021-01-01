@@ -50,6 +50,7 @@ const ApplicantBoard: React.FC<IProps> = ({ searchTerm }) => {
 
     useEffect(() => {
         if (applicantError) {
+            setLoading(false);
             setSnackBarMessage('Failed to get applicant list');
             setIsSnackBarOpen(true);
         }
