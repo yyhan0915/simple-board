@@ -36,7 +36,7 @@ const ApplicantBoard: React.FC<IProps> = ({ searchTerm }) => {
     }, []);
     const [loading, setLoading] = useState<boolean>(true);
     const searchedApplicants = searchTerm
-        ? applicants.filter(applicant => applicant.name.includes(searchTerm))
+        ? applicants.filter(applicant => applicant.name.toLowerCase().includes(searchTerm.toLowerCase()))
         : applicants;
     const dispatch = useDispatch();
 
