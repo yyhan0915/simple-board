@@ -69,6 +69,10 @@ interface IProps {
 const ApplicantCardList: React.FC<IProps> = ({ applicants, title }) => {
     const { t } = useTranslation();
 
+    if (applicants.length == 0) {
+        return null;
+    }
+
     return (
         <ApplicantCardListBlock>
             <div className="title">
