@@ -6,6 +6,16 @@ import { IApplicantData } from '../../model/applicant.interface';
 import palette, { device } from '../../styles/palette';
 import ApplicantCard from './ApplicantCard';
 
+const ApplicantCardListWithoutContent = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: ${palette.grey[0]};
+    min-height: 15.2vh;
+`;
+
 const ApplicantCardListBlock = styled.div`
     width: 100%;
     display: flex;
@@ -70,7 +80,7 @@ const ApplicantCardList: React.FC<IProps> = ({ applicants, title }) => {
     const { t } = useTranslation();
 
     if (applicants.length == 0) {
-        return null;
+        return <ApplicantCardListWithoutContent></ApplicantCardListWithoutContent>;
     }
 
     return (

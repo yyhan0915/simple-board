@@ -1,6 +1,7 @@
 import { InputAdornment, makeStyles, TextField } from '@material-ui/core';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 import palette, { device } from '../../styles/palette';
 import FilterBox from './FilterBox';
@@ -17,6 +18,12 @@ const SearchProductBlock = styled.div`
     background-color: ${palette.grey[0]};
     flex-wrap: wrap;
 
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
     .filter-boxes {
         display: flex;
         justify-content: flex-start;
@@ -27,10 +34,19 @@ const SearchProductBlock = styled.div`
         width: 26px;
     }
 
+    @media (min-width: 520px) {
+        form {
+            flex-direction: row;
+        }
+    }
+
     @media ${device.laptop} {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
-        flex-direction: column;
+
+        form {
+            flex-direction: column;
+        }
 
         .filter-boxes {
             display: flex;
@@ -66,6 +82,7 @@ const SearchProductContainer: React.FC = () => {
     const [isFocus, setIsFocus] = useState<boolean>(false);
     const [inputToken, setInputToken] = useState<string>('');
     const classes = useStyles();
+    const router = useRouter();
 
     const onFocus = () => {
         setIsFocus(true);
@@ -78,37 +95,45 @@ const SearchProductContainer: React.FC = () => {
         setInputToken(event.target.value);
     };
 
+    const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        router.push(`/?search=${inputToken}`);
+    };
+
     return (
         <SearchProductBlock>
-            <TextField
-                variant="outlined"
-                onFocus={onFocus}
-                onBlur={onBlur}
-                InputProps={{
-                    className: classes.textField,
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            {isFocus ? (
-                                <Link href={`/?search=${inputToken}`}>
-                                    <img src="/asset/image/icon-search.svg" alt="search_icon" />
-                                </Link>
-                            ) : (
-                                <Link href={`/?search=${inputToken}`}>
-                                    <img src="/asset/image/icon-search.svg" alt="search_icon" />
-                                </Link>
-                            )}
-                        </InputAdornment>
-                    ),
-                }}
-                value={inputToken}
-                onChange={onHandleChange}
-                className={classes.textField}
-                placeholder="Search for applicant"
-            />
-            <div className="filter-boxes">
-                <FilterBox title="Bids" />
-                <FilterBox title="Status" />
-            </div>
+            <form onSubmit={onSubmitHandler}>
+                <TextField
+                    variant="outlined"
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    InputProps={{
+                        className: classes.textField,
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                {isFocus ? (
+                                    <Link href={`/?search=${inputToken}`}>
+                                        <img src="/asset/image/icon-search.svg" alt="search_icon" />
+                                    </Link>
+                                ) : (
+                                    <Link href={`/?search=${inputToken}`}>
+                                        <img src="/asset/image/icon-search.svg" alt="search_icon" />
+                                    </Link>
+                                )}
+                            </InputAdornment>
+                        ),
+                    }}
+                    value={inputToken}
+                    onChange={onHandleChange}
+                    className={classes.textField}
+                    placeholder="Search for applicant"
+                />
+
+                <div className="filter-boxes">
+                    <FilterBox title="Bids" />
+                    <FilterBox title="Status" />
+                </div>
+            </form>
         </SearchProductBlock>
     );
 };
